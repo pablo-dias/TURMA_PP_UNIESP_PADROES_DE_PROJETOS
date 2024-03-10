@@ -1,28 +1,28 @@
-import { User } from "../interface/user";
+import { User } from '../interface/user';
 
 export class MyDatabaseClassic {
-    private static instance: MyDatabaseClassic | null = null;
-    private users: User[] = [];
+  private static _instance: MyDatabaseClassic | null = null;
+  private users: User[] = [];
 
-    private constructor() { }
+  private constructor() {}
 
-    static getInstance(): MyDatabaseClassic {
-        if (MyDatabaseClassic.instance === null) {
-            MyDatabaseClassic.instance = new MyDatabaseClassic();
-        }
-
-        return MyDatabaseClassic.instance
+  static get instance(): MyDatabaseClassic {
+    if (MyDatabaseClassic._instance === null) {
+      MyDatabaseClassic._instance = new MyDatabaseClassic();
     }
 
-    add(user: User): void {
-        this.users.push(user);
-    }
+    return MyDatabaseClassic._instance;
+  }
 
-    //Criar a função para deletar um usuário
+  add(user: User): void {
+    this.users.push(user);
+  }
 
-    show(): void{
-        for(const user of this.users){
-            console.log(user.name);
-        }
+  // Criar um método para remover usuário.
+
+  show(): void {
+    for (const user of this.users) {
+      console.log(user);
     }
+  }
 }

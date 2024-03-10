@@ -1,8 +1,11 @@
 import { MyDatabaseMetod } from "./db/my-database-metodo";
+import { myDatabase } from "./module_a";
 
-const myDatabaseClassic = new MyDatabaseMetod;
+const myDatabaseClassic = MyDatabaseMetod;
 
-myDatabaseClassic.add({ name: 'João', age: 15 })
+myDatabaseClassic.add({ name: 'Luiz', age: 30 });
+myDatabaseClassic.add({ name: 'Maria', age: 50 });
+myDatabaseClassic.add({ name: 'Eduardo', age: 25 });
 myDatabaseClassic.show()
 
-console.log(myDatabaseClassic === myDataBase)
+console.log(myDatabaseClassic === myDatabase)
